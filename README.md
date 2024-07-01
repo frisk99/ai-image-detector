@@ -39,3 +39,4 @@ plt.ylabel('Rate (s/it)')
 plt.title('Iteration Rate Over Epochs')
 plt.grid(True)
 plt.show()
+ | 1/1706 [00:24<11:33:57, 24.42s/it, loss=0.093, v_num=es_2, train/loss_simple_step=0.093, train/loss_vlb_step=0.000466, train/loss_step=0.093, global_step=0.000]
