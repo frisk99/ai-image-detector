@@ -41,4 +41,4 @@ df = pd.DataFrame(data)
 print(df)
 
 # 保存DataFrame到CSV文件
-df.to_csv('extracted_epoch_log_data.csv', index=False)
+Epoch 9:  38%|███▊      | 655/1706 [11:28<18:24,  1.05s/it, loss=0.0572, v_num=es_2, train/loss_simple_step=0.0442, train/loss_vlb_step=0.000295, train/loss_step=0.0442, global_step=1.6e+4, train/loss_simple_epoch=0.0677, train/loss_vlb_epoch=0.0019, train/loss_epoch=0.0677]
