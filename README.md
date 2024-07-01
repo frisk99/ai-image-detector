@@ -19,22 +19,26 @@ plt.grid(True)
 plt.savefig('progress_over_lines.png')
 plt.close()
 
-# 绘制损失变化图并保存
-plt.figure(figsize=(10, 6))
-plt.plot(df['Line'], df['Loss'], marker='o', label='Loss')
-plt.plot(df['Line'], df['Loss Simple Step'], marker='x', linestyle='--', label='Loss Simple Step')
-plt.plot(df['Line'], df['Loss VLB Step'], marker='s', linestyle='-.', label='Loss VLB Step')
-plt.plot(df['Line'], df['Loss Step'], marker='^', linestyle=':', label='Loss Step')
-plt.plot(df['Line'], df['Loss Simple Epoch'], marker='d', label='Loss Simple Epoch')
-plt.plot(df['Line'], df['Loss VLB Epoch'], marker='*', label='Loss VLB Epoch')
-plt.plot(df['Line'], df['Loss Epoch'], marker='p', label='Loss Epoch')
-plt.xlabel('Line Number')
-plt.ylabel('Loss')
-plt.title('Loss Over Lines')
-plt.legend()
-plt.grid(True)
-plt.savefig('loss_over_lines.png')
-plt.close()
+# 绘制每种损失类型的图表并保存
+loss_types = [
+    ('Loss', 'loss_over_lines.png'),
+    ('Loss Simple Step', 'loss_simple_step_over_lines.png'),
+    ('Loss VLB Step', 'loss_vlb_step_over_lines.png'),
+    ('Loss Step', 'loss_step_over_lines.png'),
+    ('Loss Simple Epoch', 'loss_simple_epoch_over_lines.png'),
+    ('Loss VLB Epoch', 'loss_vlb_epoch_over_lines.png'),
+    ('Loss Epoch', 'loss_epoch_over_lines.png')
+]
+
+for loss_type, filename in loss_types:
+    plt.figure(figsize=(10, 6))
+    plt.plot(df['Line'], df[loss_type], marker='o')
+    plt.xlabel('Line Number')
+    plt.ylabel(loss_type)
+    plt.title(f'{loss_type} Over Lines')
+    plt.grid(True)
+    plt.savefig(filename)
+    plt.close()
 
 # 绘制速率变化图并保存
 plt.figure(figsize=(10, 6))
