@@ -6,16 +6,17 @@ import matplotlib.pyplot as plt
 # 读取CSV文件
 df = pd.read_csv('extracted_epoch_log_data.csv')
 
-# 绘制进度条图
+# 绘制进度条图并保存
 plt.figure(figsize=(10, 6))
 plt.plot(df['Epoch'], df['Progress'], marker='o')
 plt.xlabel('Epoch')
 plt.ylabel('Progress (%)')
 plt.title('Epoch Progress Over Time')
 plt.grid(True)
-plt.show()
+plt.savefig('progress_over_time.png')
+plt.close()
 
-# 绘制损失变化图
+# 绘制损失变化图并保存
 plt.figure(figsize=(10, 6))
 plt.plot(df['Epoch'], df['Loss'], marker='o', label='Loss')
 plt.plot(df['Epoch'], df['Loss Simple Step'], marker='x', linestyle='--', label='Loss Simple Step')
@@ -29,13 +30,15 @@ plt.ylabel('Loss')
 plt.title('Loss Over Epochs')
 plt.legend()
 plt.grid(True)
-plt.show()
+plt.savefig('loss_over_epochs.png')
+plt.close()
 
-# 绘制速率变化图
+# 绘制速率变化图并保存
 plt.figure(figsize=(10, 6))
 plt.plot(df['Epoch'], df['Rate'], marker='o')
 plt.xlabel('Epoch')
 plt.ylabel('Rate (s/it)')
 plt.title('Iteration Rate Over Epochs')
 plt.grid(True)
-plt.show()
+plt.savefig('iteration_rate_over_epochs.png')
+plt.close
